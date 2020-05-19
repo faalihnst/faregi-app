@@ -314,7 +314,9 @@ class _AccommodationPlannerState extends State<AccommodationPlanner> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => PackagesDetails()));
+                                  builder: (_) => PackagesDetails(
+                                        trip: model.trip,
+                                      )));
                           print('mantap');
                         } else
                           model.flush(result).show(context);

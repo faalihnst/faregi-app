@@ -315,7 +315,9 @@ class _PlaneBookState extends State<PlaneBook> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => PlaneList()));
+                                        builder: (_) => PlaneList(
+                                              planes: model.planes,
+                                            )));
                                 print(model.planes[0].plane);
                               } else
                                 model.flush(result).show(context);

@@ -223,7 +223,9 @@ class _CarBookState extends State<CarBook> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => CarList()));
+                                        builder: (_) => CarList(
+                                              cars: model.cars,
+                                            )));
                                 print(model.cars[0].car);
                               } else
                                 model.flush(result).show(context);

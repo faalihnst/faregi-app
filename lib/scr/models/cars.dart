@@ -22,7 +22,8 @@ class Car {
       seat: json["passenger"],
       price: json["price"],
       car: json["name"],
-      location: json["location"]);
+      location: json["location"],
+      image: json["image"] != null ? json["image"] : " ");
 
   Map<String, dynamic> toJson() => {
         "driver": driver,

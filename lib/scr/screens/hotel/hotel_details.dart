@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -24,7 +25,7 @@ class HotelDetails extends StatelessWidget {
                   controller: controller,
                   children: <Widget>[
                     ClipRect(
-                      child: Image.asset(
+                      child: Image.network(
                         '${hotel.image}',
                         height: 400,
                         width: double.infinity,
@@ -173,19 +174,35 @@ class HotelDetails extends StatelessWidget {
                           ]),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Book Room',
-                              style:
-                                  TextStyle(color: Colors.pink, fontSize: 20),
+                      GestureDetector(
+                        onTap: () {
+                          Flushbar(
+                            flushbarStyle: FlushbarStyle.FLOATING,
+                            animationDuration: Duration(milliseconds: 400),
+                            duration: Duration(seconds: 3),
+                            margin: EdgeInsets.all(12),
+                            padding: EdgeInsets.all(14),
+                            borderRadius: 8,
+                            icon: Icon(Icons.warning, color: Colors.white),
+                            messageText: Text('Fitur Booking Belum Tersedia',
+                                style: TextStyle(color: Colors.white)),
+                            backgroundColor: Colors.orange,
+                          ).show(context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Book Room',
+                                style:
+                                    TextStyle(color: Colors.pink, fontSize: 20),
+                              ),
                             ),
                           ),
                         ),

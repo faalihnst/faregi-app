@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/view_model/plane_viewmodel.dart';
 import 'package:faregi_app/scr/models/planes.dart';
 import 'package:faregi_app/scr/widgets/plane_catalog.dart';
 
 class PlaneList extends StatefulWidget {
+  final List<Plane> planes;
+  PlaneList({this.planes});
   @override
   _PlaneListState createState() => _PlaneListState();
 }
 
 class _PlaneListState extends State<PlaneList> {
-  PlaneModel _planeModel = locator<PlaneModel>();
-  List<Plane> get planes => _planeModel.planes;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,16 +42,16 @@ class _PlaneListState extends State<PlaneList> {
                         crossAxisCount: 1,
                         shrinkWrap: true,
                         childAspectRatio: 2.0,
-                        children: List.generate(planes.length, (index) {
+                        children: List.generate(widget.planes.length, (index) {
                           return CatalogPlane(
-                            plane: planes[index],
-                            fromTime: planes[index].fromTime,
-                            toTime: planes[index].toTime,
-                            prices: planes[index].price,
-                            fromAirport: planes[index].fromAirport,
-                            toAirport: planes[index].toAirport,
-                            picture: planes[index].image,
-                            name: planes[index].plane,
+                            plane: widget.planes[index],
+                            fromTime: widget.planes[index].fromTime,
+                            toTime: widget.planes[index].toTime,
+                            prices: widget.planes[index].price,
+                            fromAirport: widget.planes[index].fromAirport,
+                            toAirport: widget.planes[index].toAirport,
+                            picture: widget.planes[index].image,
+                            name: widget.planes[index].plane,
                           );
                         }),
                       ),

@@ -239,7 +239,9 @@ class _HotelBookState extends State<HotelBook> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => HotelList()));
+                                      builder: (_) => HotelList(
+                                            hotels: model.hotels,
+                                          )));
                               print(model.hotels[0].hotel);
                             } else
                               model.flush(result).show(context);

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/view_model/car_viewmodel.dart';
 import 'package:faregi_app/scr/models/cars.dart';
 import 'package:faregi_app/scr/widgets/car_catalog.dart';
 
 class CarList extends StatefulWidget {
+  final List<Car> cars;
+  CarList({this.cars});
   @override
   _CarListState createState() => _CarListState();
 }
 
 class _CarListState extends State<CarList> {
-  CarModel _carModel = locator<CarModel>();
-  List<Car> get cars => _carModel.cars;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,15 +42,15 @@ class _CarListState extends State<CarList> {
                         crossAxisCount: 1,
                         shrinkWrap: true,
                         childAspectRatio: 2.0,
-                        children: List.generate(cars.length, (index) {
+                        children: List.generate(widget.cars.length, (index) {
                           return CatalogCar(
-                            car: cars[index],
-                            carType: cars[index].carType,
-                            driver: cars[index].driver,
-                            prices: cars[index].price,
-                            seat: cars[index].seat,
-                            picture: cars[index].image,
-                            name: cars[index].car,
+                            car: widget.cars[index],
+                            carType: widget.cars[index].carType,
+                            driver: widget.cars[index].driver,
+                            prices: widget.cars[index].price,
+                            seat: widget.cars[index].seat,
+                            picture: widget.cars[index].image,
+                            name: widget.cars[index].car,
                           );
                         }),
                       ),

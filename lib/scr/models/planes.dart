@@ -29,7 +29,8 @@ class Plane {
       fromTime: json["departure_datetime"],
       toTime: json["arrival_datetime"],
       price: json["price"],
-      plane: json["airline_id"]["name"]);
+      plane: json["airline_id"]["name"],
+      image: json["airline_id"]["logo"] != null ? json["airline_id"]["logo"] : " " );
 
   Map<String, dynamic> toJson() => {
         "class_type": classType,

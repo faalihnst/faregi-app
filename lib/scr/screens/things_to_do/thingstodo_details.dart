@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:faregi_app/scr/models/todo.dart';
 
@@ -21,8 +22,8 @@ class ThingsToDoDetails extends StatelessWidget {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
                   ),
-                  child: Image.asset(
-                    'images/${toDo.images}',
+                  child: Image.network(
+                    '${toDo.images}',
                     height: 400,
                     width: double.infinity,
                     fit: BoxFit.fill,
@@ -79,17 +80,33 @@ class ThingsToDoDetails extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Book a Ticket',
-                              style:
-                                  TextStyle(color: Colors.pink, fontSize: 20),
+                        child: GestureDetector(
+                          onTap: () {
+                            Flushbar(
+                              flushbarStyle: FlushbarStyle.FLOATING,
+                              animationDuration: Duration(milliseconds: 400),
+                              duration: Duration(seconds: 3),
+                              margin: EdgeInsets.all(12),
+                              padding: EdgeInsets.all(14),
+                              borderRadius: 8,
+                              icon: Icon(Icons.warning, color: Colors.white),
+                              messageText: Text('Fitur Booking Belum Tersedia',
+                                  style: TextStyle(color: Colors.white)),
+                              backgroundColor: Colors.orange,
+                            ).show(context);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Book a Ticket',
+                                style:
+                                    TextStyle(color: Colors.pink, fontSize: 20),
+                              ),
                             ),
                           ),
                         ),

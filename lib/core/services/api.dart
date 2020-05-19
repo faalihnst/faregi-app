@@ -8,7 +8,7 @@ import 'package:faregi_app/scr/models/city.dart';
 import 'package:faregi_app/scr/models/hotels.dart';
 import 'package:faregi_app/scr/models/planes.dart';
 import 'package:faregi_app/core/result.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/models/trains.dart';
 import 'package:faregi_app/scr/models/trip.dart';
@@ -298,8 +298,9 @@ class Api {
       'Cookie': sessionId
     };
     var data = jsonEncode({
-      "budget_min": 99000,
-      "budget_max": 99999999,
+      "budget_min": budgetMin,
+      "budget_max": budgetMax,
+      "transport": transport,
       "city_from": cityFrom,
       "city_to": cityTo,
       "date_from": dateFrom,
@@ -355,6 +356,31 @@ class Api {
     } catch (e) {
       print('$e');
       return Result(ResultType.Error, 'Data Tidak Tersedia');
+    }
+  }
+
+  Future book(int id) async {
+    String sessionId = await _auth.sessionId;
+    Map<String, String> headers = {
+      'Content-Type': 'application/json',
+      'Cookie': sessionId
+    };
+    var data = jsonEncode({
+      "id": id,
+    });
+
+    try {
+      http.Response response = await http.post(
+        'http://139.162.32.148:8069/api/hotels/search',
+        body: data,
+        headers: headers,
+      );
+      print(response.statusCode);
+      return Result(ResultType.Success,
+          'Data Berhasil Disimpan, Lihat di Bookmarks Anda');
+    } catch (e) {
+      print('$e');
+      return Result(ResultType.Error, 'Data Gagal Disimpan');
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'todo.dart';
 
 class Trip {
+  int id;
   String place;
   String image;
   String duration;
@@ -11,22 +12,23 @@ class Trip {
   String cityTo;
   List<ItenaryId> itenaryIds;
 
-  Trip({
-    this.place,
-    this.image,
-    this.duration,
-    this.price,
-    this.itenaryIds,
-    this.dateFrom,
-    this.dateTo,
-    this.cityFrom,
-    this.cityTo,
-  });
+  Trip(
+      {this.place,
+      this.image,
+      this.duration,
+      this.price,
+      this.itenaryIds,
+      this.dateFrom,
+      this.dateTo,
+      this.cityFrom,
+      this.cityTo,
+      this.id});
 
   factory Trip.fromJson(Map<String, dynamic> json) {
     var list = json['itenerary_ids'] as List;
     List<ItenaryId> data = list.map((i) => ItenaryId.fromJson(i)).toList();
     return Trip(
+      id: json["id"],
       place: json["name"],
       duration: json["duration"],
       dateFrom: json["date_from"],
@@ -34,6 +36,7 @@ class Trip {
       cityFrom: json["city_from"],
       cityTo: json["city_to"],
       price: json["price"],
+      image: json["image"] != null ? json["image"] : " ",
       itenaryIds: data,
     );
   }
@@ -53,6 +56,6 @@ class ItenaryId {
         date: json["date"],
         duration: json["duration"],
         hour: json["hour"],
-//      todo: ToDo.fromJson(json["todo"])
+        todo: json["todo_id"] != null ? ToDo.fromJson(json["todo_id"]) : null,
       );
 }

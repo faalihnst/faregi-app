@@ -1,4 +1,4 @@
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/scr/models/planes.dart';
 import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/view_model/base_viewmodel.dart';

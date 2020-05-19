@@ -19,6 +19,7 @@ class City {
     return City(
       city: json["name"],
       desc: json["description"],
+      image: json["image"] != null ? json["image"] : " ",
       toDo: data,
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/services/api.dart';
 import 'package:faregi_app/scr/models/city.dart';

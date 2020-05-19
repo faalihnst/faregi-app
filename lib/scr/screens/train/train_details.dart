@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ticket_widget/flutter_ticket_widget.dart';
 import 'package:faregi_app/scr/models/trains.dart';
@@ -153,7 +154,20 @@ class TrainDetails extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Flushbar(
+                  flushbarStyle: FlushbarStyle.FLOATING,
+                  animationDuration: Duration(milliseconds: 400),
+                  duration: Duration(seconds: 3),
+                  margin: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(14),
+                  borderRadius: 8,
+                  icon: Icon(Icons.warning, color: Colors.white),
+                  messageText: Text('Fitur Booking Belum Tersedia',
+                      style: TextStyle(color: Colors.white)),
+                  backgroundColor: Colors.orange,
+                ).show(context);
+              },
               child: Container(
                 height: 50.0,
                 width: 150.0,

@@ -17,6 +17,7 @@ class ToDo {
         name: json["name"],
         description: json["description"],
         ticketPrice: json["price"],
+        images: json["image"] != null ? json["image"] : " ",
       );
 
   Map<String, dynamic> toJson() => {

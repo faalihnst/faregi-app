@@ -1,3 +1,4 @@
+import 'package:faregi_app/scr/screens/bookmarks_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:faregi_app/core/result.dart';
@@ -7,7 +8,7 @@ import 'package:faregi_app/scr/models/trip.dart';
 import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/screens/packages/packages_details.dart';
 
-class PackageCard extends StatelessWidget {
+class BookmarkCard extends StatelessWidget {
   final String name;
   final String duration;
   final String picture;
@@ -15,7 +16,7 @@ class PackageCard extends StatelessWidget {
   final String price;
   final List<ToDo> toDo;
 
-  PackageCard({
+  BookmarkCard({
     this.name,
     this.duration,
     this.picture,
@@ -40,7 +41,7 @@ class PackageCard extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (_) => PackagesDetail(
+                  builder: (_) => BookmarkDetails(
                         trip: place,
                       )));
         },
@@ -138,12 +139,12 @@ class PackageCard extends StatelessWidget {
   }
 }
 
-class PackageCatalog extends StatefulWidget {
+class BookmarkCatalog extends StatefulWidget {
   @override
-  _PackageCatalogState createState() => _PackageCatalogState();
+  _BookmarkCatalogState createState() => _BookmarkCatalogState();
 }
 
-class _PackageCatalogState extends State<PackageCatalog> {
+class _BookmarkCatalogState extends State<BookmarkCatalog> {
   @override
   Widget build(BuildContext context) {
     return BaseView<PackageModel>(
@@ -160,7 +161,7 @@ class _PackageCatalogState extends State<PackageCatalog> {
         padding: const EdgeInsets.all(20),
         crossAxisCount: 2,
         children: List.generate(model.trips.length, (index) {
-          return PackageCard(
+          return BookmarkCard(
             place: model.trips[index],
             name: model.trips[index].place,
             duration: model.trips[index].duration,

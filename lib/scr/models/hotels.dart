@@ -23,7 +23,8 @@ class Hotel {
       description: json["description"],
       price: json["price"],
       rating: json["rating"],
-      location: json["location"]);
+      location: json["location"],
+      image: json["image_ids"][0] != null ? json["image_ids"][0] : " ");
 
   Map<String, dynamic> toJson() => {
         "name": hotel,

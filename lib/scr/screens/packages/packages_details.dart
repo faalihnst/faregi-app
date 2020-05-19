@@ -1,6 +1,9 @@
+import 'package:faregi_app/core/result.dart';
+import 'package:faregi_app/core/view_model/book_viewmodel.dart';
+import 'package:faregi_app/scr/base.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
 import 'package:faregi_app/scr/models/trip.dart';
 
@@ -14,118 +17,124 @@ class PackagesDetail extends StatefulWidget {
 class _PackagesDetailState extends State<PackagesDetail> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: ClipRect(
-                    child: Image.asset(
-                  '${widget.trip.image}',
-                  height: 400,
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                )),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 16.0,
-                    left: 16,
-                  ),
-                  child: Text(
-                    "Travel to ${widget.trip.place}",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
+    return BaseView<BookModel>(
+      onModelReady: (model) => model.init(),
+      builder: (context, model, child) => Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: ClipRect(
+                      child: Image.asset(
+                    '${widget.trip.image}',
+                    height: 400,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                  )),
                 ),
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.only(left: 16.0),
-                leading: Icon(Icons.date_range),
-                title: Align(
-                    alignment: Alignment(-1.2, 0),
-                    child: Text(widget.trip.duration)),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Text('From :', style: TextStyle(fontSize: 15)),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 16.0,
+                      left: 16,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        widget.trip.dateFrom,
-                        style: TextStyle(fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Text('To :', style: TextStyle(fontSize: 15)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        widget.trip.dateTo,
-                        style: TextStyle(fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(height: 20),
-              Container(
-                child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: widget.trip.itenaryIds.length,
-                    shrinkWrap: true,
-                    itemBuilder: (_, index) {
-                      return Timeline(
-                        itenary: widget.trip.itenaryIds[index],
-                        name: widget.trip.itenaryIds[index].name,
-                        duration: widget.trip.itenaryIds[index].duration,
-                        hour: widget.trip.itenaryIds[index].hour,
-                        date: widget.trip.itenaryIds[index].date,
-                      );
-                    }),
-              ),
-              SizedBox(height: 25),
-              ButtonBar(
-                alignment: MainAxisAlignment.center,
-                buttonMinWidth: 200,
-                children: <Widget>[
-                  FlatButton(
-                    color: Colors.redAccent[400],
-                    textColor: Colors.white,
-                    disabledColor: Colors.grey,
-                    disabledTextColor: Colors.black,
-                    padding: EdgeInsets.all(8.0),
-                    splashColor: Colors.red,
-                    onPressed: () {
-                      //
-                    },
                     child: Text(
-                      "Book",
-                      style: TextStyle(fontSize: 20.0),
+                      "Travel to ${widget.trip.place}",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.only(left: 16.0),
+                  leading: Icon(Icons.date_range),
+                  title: Align(
+                      alignment: Alignment(-1.2, 0),
+                      child: Text(widget.trip.duration)),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text('From :', style: TextStyle(fontSize: 15)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          widget.trip.dateFrom,
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text('To :', style: TextStyle(fontSize: 15)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          widget.trip.dateTo,
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                SizedBox(height: 20),
+                Container(
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: widget.trip.itenaryIds.length,
+                      shrinkWrap: true,
+                      itemBuilder: (_, index) {
+                        return Timeline(
+                          itenary: widget.trip.itenaryIds[index],
+                          name: widget.trip.itenaryIds[index].name,
+                          duration: widget.trip.itenaryIds[index].duration,
+                          hour: widget.trip.itenaryIds[index].hour,
+                          date: widget.trip.itenaryIds[index].date,
+                        );
+                      }),
+                ),
+                SizedBox(height: 25),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  buttonMinWidth: 200,
+                  children: <Widget>[
+                    FlatButton(
+                      color: Colors.redAccent[400],
+                      textColor: Colors.white,
+                      disabledColor: Colors.grey,
+                      disabledTextColor: Colors.black,
+                      padding: EdgeInsets.all(8.0),
+                      splashColor: Colors.red,
+                      onPressed: () async {
+                        model.id = widget.trip.id;
+                        Result result = await model.bookTrip();
+                        model.flush(result).show(context);
+                      },
+                      child: Text(
+                        "Book",
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

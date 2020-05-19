@@ -50,7 +50,7 @@ class CatalogCar extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Image.asset(
+                      Image.network(
                         '$picture',
                         height: 100,
                         width: 200,
@@ -118,7 +118,7 @@ class CatalogCar extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Rp. $prices/day',
+                        '$prices/day',
                         style: TextStyle(
                           color: Colors.red[400],
                           fontSize: 18.0,

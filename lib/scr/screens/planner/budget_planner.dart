@@ -17,8 +17,8 @@ class BudgetPlanner extends StatefulWidget {
 class _BudgetPlannerState extends State<BudgetPlanner> {
   Transport selectedTransport;
   String transport;
-  int budgetFrom;
-  int budgetTo;
+  String budgetFrom;
+  String budgetTo;
   @override
   Widget build(BuildContext context) {
     UIHelper.init(context);
@@ -82,6 +82,8 @@ class _BudgetPlannerState extends State<BudgetPlanner> {
                         onChanged: (value) {
                           setState(() {
                             budgetTo = value;
+                            print(value.txt);
+                            print(value.runtimeType);
                           });
                         },
                       ),
@@ -175,8 +177,8 @@ class _BudgetPlannerState extends State<BudgetPlanner> {
                         MaterialPageRoute(
                             builder: (_) => AccommodationPlanner(
                                   transport: transport,
-                                  budgetFrom: budgetFrom,
-                                  budgetTo: budgetTo,
+                                  budgetFrom: int.parse(budgetFrom),
+                                  budgetTo: int.parse(budgetTo),
                                 )));
                   },
                   child: Container(

@@ -23,8 +23,8 @@ class ExploreDetails extends StatelessWidget {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
                   ),
-                  child: Image.asset(
-                    'images/${city.image}',
+                  child: Image.network(
+                    '${city.image}',
                     height: 400,
                     width: double.infinity,
                     fit: BoxFit.fill,

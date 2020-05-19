@@ -120,7 +120,7 @@ class CatalogPlane extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Row(
                         children: <Widget>[
-                          Image.asset(
+                          Image.network(
                             "$picture",
                             width: 60.0,
                             height: 80.0,

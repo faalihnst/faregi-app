@@ -32,8 +32,8 @@ class ExploreCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Stack(
             children: <Widget>[
-              Image.asset(
-                "images/$picture",
+              Image.network(
+                "$picture",
                 height: double.infinity,
                 width: 200,
                 fit: BoxFit.cover,

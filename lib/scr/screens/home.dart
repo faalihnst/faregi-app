@@ -21,7 +21,7 @@ import 'ui_helper.dart';
 import 'car/car_book.dart';
 import 'package:faregi_app/core/services/auth_service.dart';
 import 'packages/packages_list.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 
 class Home extends StatefulWidget {
   @override

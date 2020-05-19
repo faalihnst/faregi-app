@@ -308,7 +308,9 @@ class _TrainBookState extends State<TrainBook> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => TrainList()));
+                                        builder: (_) => TrainList(
+                                              trains: model.trains,
+                                            )));
                                 print(model.trains[0].train);
                               } else
                                 model.flush(result).show(context);

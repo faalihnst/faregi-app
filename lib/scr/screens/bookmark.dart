@@ -1,3 +1,4 @@
+import 'package:faregi_app/scr/widgets/bookmarks_card.dart';
 import 'package:flutter/material.dart';
 import 'package:faregi_app/scr/widgets/packages_card.dart';
 
@@ -27,7 +28,7 @@ class Bookmarks extends StatelessWidget {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  Expanded(child: Container(child: PackageCatalog())),
+                  Expanded(child: Container(child: BookmarkCatalog())),
                 ],
               ),
             ),

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locator.dart';
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/view_model/train_viewmodel.dart';
 import 'package:faregi_app/scr/models/trains.dart';
 import 'package:faregi_app/scr/widgets/train_catalog.dart';
 
 class TrainList extends StatefulWidget {
+  final List<Train> trains;
+  TrainList({this.trains});
   @override
   _TrainListState createState() => _TrainListState();
 }
 
 class _TrainListState extends State<TrainList> {
-  TrainModel _trainModel = locator<TrainModel>();
-  List<Train> get trains => _trainModel.trains;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,17 +42,17 @@ class _TrainListState extends State<TrainList> {
                         crossAxisCount: 1,
                         shrinkWrap: true,
                         childAspectRatio: 2.0,
-                        children: List.generate(trains.length, (index) {
+                        children: List.generate(widget.trains.length, (index) {
                           return CatalogTrain(
-                            train: trains[index],
-                            fromTime: trains[index].fromTime,
-                            toTime: trains[index].toTime,
-                            prices: trains[index].price,
-                            fromStation: trains[index].fromStation,
-                            toStation: trains[index].toStation,
-                            picture: trains[index].image,
-                            name: trains[index].train,
-                            trainCode: trains[index].trainCode,
+                            train: widget.trains[index],
+                            fromTime: widget.trains[index].fromTime,
+                            toTime: widget.trains[index].toTime,
+                            prices: widget.trains[index].price,
+                            fromStation: widget.trains[index].fromStation,
+                            toStation: widget.trains[index].toStation,
+                            picture: widget.trains[index].image,
+                            name: widget.trains[index].train,
+                            trainCode: widget.trains[index].trainCode,
                           );
                         }),
                       ),

@@ -51,7 +51,7 @@ class CatalogHotel extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Image.asset(
+                  Image.network(
                     '$picture',
                     height: 150.0,
                     width: 100,
