@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/plane_viewmodel.dart';
 import 'package:faregi_app/scr/models/planes.dart';
 import 'package:faregi_app/scr/widgets/plane_catalog.dart';
 

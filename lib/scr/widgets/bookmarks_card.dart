@@ -6,7 +6,6 @@ import 'package:faregi_app/core/view_model/package_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
 import 'package:faregi_app/scr/models/trip.dart';
 import 'package:faregi_app/scr/models/todo.dart';
-import 'package:faregi_app/scr/screens/packages/packages_details.dart';
 
 class BookmarkCard extends StatelessWidget {
   final String name;

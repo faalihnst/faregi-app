@@ -3,7 +3,6 @@ import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/view_model/base_viewmodel.dart';
 import 'package:faregi_app/core/services/api.dart';
 import 'package:faregi_app/scr/models/cars.dart';
-import 'package:faregi_app/scr/models/trains.dart';
 
 class CarModel extends BaseModel {
   Api _api = locator<Api>();

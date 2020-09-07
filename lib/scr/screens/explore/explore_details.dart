@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:faregi_app/scr/models/city.dart';
-import 'package:faregi_app/scr/widgets/afford_tours.dart';
 import 'package:faregi_app/scr/widgets/todo_card.dart';
 
 class ExploreDetails extends StatelessWidget {

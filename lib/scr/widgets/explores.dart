@@ -4,9 +4,8 @@ import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/services/api.dart';
 import 'package:faregi_app/scr/models/city.dart';
-import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/widgets/explore_card.dart';
-import 'package:faregi_app/scr/widgets/todo_card.dart';
+
 
 class Explores extends StatefulWidget {
   @override

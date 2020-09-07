@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/view_model/todo_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
-import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/widgets/todo_card.dart';
 
 class ToDoCatalog extends StatefulWidget {

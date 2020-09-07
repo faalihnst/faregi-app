@@ -1,4 +1,4 @@
-import 'package:faregi_app/scr/models/city.dart';
+
 
 class ToDo {
   String name;

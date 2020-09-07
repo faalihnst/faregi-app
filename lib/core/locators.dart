@@ -8,13 +8,9 @@ import 'package:faregi_app/core/view_model/plane_viewmodel.dart';
 import 'package:faregi_app/core/view_model/todo_viewmodel.dart';
 import 'package:faregi_app/core/view_model/train_viewmodel.dart';
 import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
-import 'package:faregi_app/scr/models/trip.dart';
-import 'package:faregi_app/scr/screens/planner_details.dart';
-
-import 'view_model/auth_viewmodel.dart';
 import 'package:get_it/get_it.dart';
 import 'services/api.dart';
-
+import 'package:faregi_app/core/view_model/auth_viewmodel.dart';
 GetIt locator = GetIt.asNewInstance();
 
 void setupLocator() {

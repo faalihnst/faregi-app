@@ -12,7 +12,6 @@ import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/models/trains.dart';
 import 'package:faregi_app/scr/models/trip.dart';
-import 'package:faregi_app/scr/screens/planner/budget_planner.dart';
 
 class Api {
   static String baseUrlDev = 'http://139.162.32.148:8069';
@@ -38,9 +37,11 @@ class Api {
       );
       print(response.headers);
       User user = User.fromJson(response.data['data']);
+      print("username = ${user.username}");
       _auth.freshLogin(user);
       _auth.updateCookie(response.headers);
       print(response.statusCode);
+      print(user.username);
       return Result(ResultType.Success, 'Login berhasil');
     } catch (e) {
       print('$e');

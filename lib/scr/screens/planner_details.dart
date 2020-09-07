@@ -1,15 +1,15 @@
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/result.dart';
+import 'package:faregi_app/core/services/auth_service.dart';
 import 'package:faregi_app/core/view_model/book_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
 import 'package:faregi_app/scr/models/todo.dart';
+import 'package:faregi_app/scr/screens/authentication/auth_screen.dart';
 import 'package:faregi_app/scr/screens/things_to_do/thingstodo_details.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
 import 'package:faregi_app/scr/models/trip.dart';
-import 'package:provider/provider.dart';
 
 class PackagesDetails extends StatefulWidget {
   final Trip trip;
@@ -19,6 +19,7 @@ class PackagesDetails extends StatefulWidget {
 }
 
 class _PackagesDetailsState extends State<PackagesDetails> {
+  AuthService _authService = locator<AuthService>();
   @override
   Widget build(BuildContext context) {
     return BaseView<BookModel>(
@@ -127,9 +128,16 @@ class _PackagesDetailsState extends State<PackagesDetails> {
                       padding: EdgeInsets.all(8.0),
                       splashColor: Colors.red,
                       onPressed: () async {
-                        model.id = widget.trip.id;
-                        Result result = await model.bookTrip();
-                        model.flush(result).show(context);
+                        print(_authService.currentUser.username);
+                        if (_authService.currentUser.username ==
+                            "public@mail.com") {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => AuthScreen()));
+                        } else {
+                          model.id = widget.trip.id;
+                          Result result = await model.bookTrip();
+                          model.flush(result).show(context);
+                        }
                       },
                       child: Text(
                         "Book",

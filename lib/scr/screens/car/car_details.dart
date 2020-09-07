@@ -1,5 +1,4 @@
 import 'package:flushbar/flushbar.dart';
-import 'package:flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 import 'package:faregi_app/scr/models/cars.dart';
 

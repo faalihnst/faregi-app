@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/train_viewmodel.dart';
 import 'package:faregi_app/scr/models/trains.dart';
 import 'package:faregi_app/scr/widgets/train_catalog.dart';
 

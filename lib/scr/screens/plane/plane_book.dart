@@ -6,7 +6,6 @@ import 'package:faregi_app/scr/base.dart';
 import 'package:faregi_app/scr/screens/plane/plane_list.dart';
 import 'package:faregi_app/scr/widgets/input_box.dart';
 import 'package:faregi_app/scr/widgets/no_traveller.dart';
-import 'package:provider/provider.dart';
 
 class PlaneBook extends StatefulWidget {
   @override

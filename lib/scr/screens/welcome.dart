@@ -1,12 +1,18 @@
+import 'package:faregi_app/core/result.dart';
+import 'package:faregi_app/core/view_model/auth_viewmodel.dart';
+import 'package:faregi_app/scr/base.dart';
+import 'package:faregi_app/scr/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/scr/screens/authentication/auth_screen.dart';
 import 'package:faregi_app/scr/screens/ui_helper.dart';
+
 
 class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UIHelper.init(context);
-    return Scaffold(
+    return BaseView<AuthViewModel>(
+      onModelReady: (model) => model.init(),
+      builder: (context, model, child) =>Scaffold(
       body: Stack(
         children: <Widget>[
           Image.asset(
@@ -91,9 +97,15 @@ class Welcome extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => AuthScreen()));
+                  onTap: () async {
+                    model.username = "public@mail.com";
+                    model.password = "123";
+                    Result result = await model.login();
+                    if (result.resultType == ResultType.Success)
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => Home()));
+                        else
+                          model.flush(result).show(context);
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -113,6 +125,7 @@ class Welcome extends StatelessWidget {
           ),
         ],
       ),
+    )
     );
   }
 }

@@ -1,10 +1,11 @@
+import 'package:faregi_app/core/locators.dart';
 import 'package:faregi_app/core/result.dart';
+import 'package:faregi_app/core/services/auth_service.dart';
 import 'package:faregi_app/core/view_model/book_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
+import 'package:faregi_app/scr/screens/authentication/auth_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
 import 'package:faregi_app/scr/models/trip.dart';
 
 class PackagesDetail extends StatefulWidget {
@@ -15,6 +16,7 @@ class PackagesDetail extends StatefulWidget {
 }
 
 class _PackagesDetailState extends State<PackagesDetail> {
+  AuthService _authService = locator<AuthService>();
   @override
   Widget build(BuildContext context) {
     return BaseView<BookModel>(
@@ -122,9 +124,15 @@ class _PackagesDetailState extends State<PackagesDetail> {
                       padding: EdgeInsets.all(8.0),
                       splashColor: Colors.red,
                       onPressed: () async {
-                        model.id = widget.trip.id;
-                        Result result = await model.bookTrip();
-                        model.flush(result).show(context);
+                        if (_authService.currentUser.username ==
+                            "public@mail.com") {
+                              Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => AuthScreen()));
+                        } else {
+                          model.id = widget.trip.id;
+                          Result result = await model.bookTrip();
+                          model.flush(result).show(context);
+                        }
                       },
                       child: Text(
                         "Book",

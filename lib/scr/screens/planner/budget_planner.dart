@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:faregi_app/scr/screens/planner/accomodation_planner.dart';
 import 'package:faregi_app/scr/widgets/icon_card.dart';
 import 'package:faregi_app/scr/constant.dart';

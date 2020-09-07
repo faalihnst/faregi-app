@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/hotel_viewmodel.dart';
 import 'package:faregi_app/scr/models/hotels.dart';
 import 'package:faregi_app/scr/widgets/hotel_catalog.dart';
 

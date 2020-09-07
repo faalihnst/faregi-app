@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/result.dart';
-import 'package:faregi_app/core/view_model/todo_viewmodel.dart';
-import 'package:faregi_app/scr/base.dart';
 import 'package:faregi_app/scr/widgets/thingstodo_catalog.dart';
 
 class ThingsToDo extends StatelessWidget {

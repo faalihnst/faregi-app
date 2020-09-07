@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:faregi_app/core/models/user.dart';
 import 'package:faregi_app/scr/constant.dart';
 import 'package:faregi_app/scr/screens/authentication/auth_screen.dart';
 import 'package:faregi_app/scr/screens/bookmark.dart';
@@ -13,7 +11,6 @@ import 'package:faregi_app/scr/screens/welcome.dart';
 import 'package:faregi_app/scr/widgets/afford_tours.dart';
 import 'package:faregi_app/scr/widgets/explores.dart';
 import 'package:faregi_app/scr/widgets/icon_card.dart';
-import 'package:faregi_app/scr/widgets/images_cards.dart';
 import 'profile.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:faregi_app/scr/screens/train/train_book.dart';
@@ -31,6 +28,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   AuthService _authService = locator<AuthService>();
   String sessionId;
+  String username;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -41,6 +39,7 @@ class _HomeState extends State<Home> {
 
   void getCookie() async {
     sessionId = await _authService.sessionId;
+    username = await _authService.currentUser.username;
   }
 
   List<Image> images = [

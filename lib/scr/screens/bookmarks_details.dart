@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:faregi_app/core/locators.dart';
-import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
 import 'package:faregi_app/scr/models/trip.dart';
 
 class BookmarkDetails extends StatefulWidget {

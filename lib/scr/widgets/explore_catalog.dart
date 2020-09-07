@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/view_model/city_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
-import 'package:faregi_app/scr/models/city.dart';
-import 'package:faregi_app/scr/models/todo.dart';
 import 'package:faregi_app/scr/widgets/explore_card.dart';
 
 class ExploreCatalog extends StatefulWidget {

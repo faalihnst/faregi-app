@@ -4,10 +4,8 @@ import 'package:faregi_app/core/result.dart';
 import 'package:faregi_app/core/view_model/trip_viewmodel.dart';
 import 'package:faregi_app/scr/base.dart';
 import 'package:faregi_app/scr/screens/planner_details.dart';
-import 'package:faregi_app/scr/screens/planner/budget_planner.dart';
 import 'package:faregi_app/scr/widgets/input_box.dart';
 import 'package:faregi_app/scr/widgets/no_traveller.dart';
-import '../packages/packages_details.dart';
 
 class AccommodationPlanner extends StatefulWidget {
   final int budgetFrom;
