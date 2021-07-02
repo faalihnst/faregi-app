@@ -14,7 +14,7 @@ import 'package:faregi_app/scr/models/trains.dart';
 import 'package:faregi_app/scr/models/trip.dart';
 
 class Api {
-  static String baseUrlDev = 'http://139.162.32.148:8069';
+  static String baseUrlDev = 'http://172.105.122.75:8069';
   AuthService _auth = locator<AuthService>();
   static BaseOptions _baseOptions = BaseOptions(
     baseUrl: baseUrlDev,
@@ -95,7 +95,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/flights/search',
+        'http://172.105.122.75:8069/api/flights/search',
         body: data,
         headers: headers,
       );
@@ -134,7 +134,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/trains/search',
+        'http://172.105.122.75:8069/api/trains/search',
         body: data,
         headers: headers,
       );
@@ -169,7 +169,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/cars/search',
+        'http://172.105.122.75:8069/api/cars/search',
         body: data,
         headers: headers,
       );
@@ -204,7 +204,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/hotels/search',
+        'http://172.105.122.75:8069/api/hotels/search',
         body: data,
         headers: headers,
       );
@@ -237,7 +237,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/todos/all',
+        'http://172.105.122.75:8069/api/todos/all',
         body: data,
         headers: headers,
       );
@@ -270,7 +270,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/explores/all',
+        'http://172.105.122.75:8069/api/explores/all',
         body: data,
         headers: headers,
       );
@@ -310,7 +310,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/trips/search',
+        'http://172.105.122.75:8069/api/trips/search',
         body: data,
         headers: headers,
       );
@@ -339,7 +339,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/trips/all',
+        'http://172.105.122.75:8069/api/trips/all',
         body: data,
         headers: headers,
       );
@@ -372,7 +372,7 @@ class Api {
 
     try {
       http.Response response = await http.post(
-        'http://139.162.32.148:8069/api/hotels/search',
+        'http://172.105.122.75:8069/api/hotels/search',
         body: data,
         headers: headers,
       );
